@@ -9,24 +9,55 @@ export const AdvancedSearchForm = () => {
   const getFields = () => {
     const count = expand ? 10 : 6
     const children = []
-    for (let i = 0; i < count; i++) {
+
+    children.push(
+      <Col span={8} key="address">
+        <Form.Item name="address" label="Address">
+          <Input placeholder="type property here.." />
+        </Form.Item>
+      </Col>
+    )
+    children.push(
+      <Col span={8} key="office">
+        <Form.Item name="office" label="Office">
+          <Input placeholder="select office" />
+        </Form.Item>
+      </Col>
+    )
+    children.push(
+      <Col span={8} key="clc">
+        <Form.Item name="clc" label="CLC">
+          <Input placeholder="search CLC" />
+        </Form.Item>
+      </Col>
+    )
+    if (expand) {
       children.push(
-        <Col span={8} key={i}>
-          <Form.Item
-            name={`field-${i}`}
-            label={`Field ${i}`}
-            rules={[
-              {
-                required: true,
-                message: 'Input something!',
-              },
-            ]}
-          >
-            <Input placeholder="placeholder" />
+        <Col span={8} key="landreg">
+          <Form.Item name="landreg" label="Land Reg Filed">
+            <Input placeholder="filter landreg" />
           </Form.Item>
         </Col>
       )
     }
+    // for (let i = 0; i < count; i++) {
+    //   children.push(
+    //     <Col span={8} key={i}>
+    //       <Form.Item
+    //         name={`field-${i}`}
+    //         label={`Field ${i}`}
+    //         rules={[
+    //           {
+    //             required: true,
+    //             message: 'Input something!',
+    //           },
+    //         ]}
+    //       >
+    //         <Input placeholder="placeholder" />
+    //       </Form.Item>
+    //     </Col>
+    //   )
+    // }
     return children
   }
 
