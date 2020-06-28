@@ -3,6 +3,7 @@ import { Button, Input, Spin, Card } from 'antd'
 
 import { withStore } from '@/src/components'
 import { AdvancedSearchForm } from './checklist-search-form'
+import { Checklists } from './checklist-search-results'
 
 interface ChecklistProps extends PageProps, StoreProps {
   count: StoreStates['count']
@@ -49,7 +50,9 @@ export default class Checklist extends React.Component<ChecklistProps, Checklist
         <Card title="Lettings Checklist Search" className="mb-16">
           <AdvancedSearchForm />
         </Card>
-        <Card title="Lettings Checklist Results" className="mb-16"></Card>
+        <Card title="Lettings Checklist Results" className="mb-16">
+          <Checklists />
+        </Card>
       </div>
     )
   }

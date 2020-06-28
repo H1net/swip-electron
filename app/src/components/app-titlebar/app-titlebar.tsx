@@ -23,7 +23,7 @@ export class AppTitlebar extends React.Component<{}, State> {
     return (
       <header className="pl-16 pr-16 app-titlebar">
         <p>
-          <i>Demo concept for pre-marketing checklist</i> | Path: {path}
+          <i>Demo concept for shared lettings checklist spreadsheet</i> | Path: {path}
         </p>
       </header>
     )
