@@ -22,7 +22,9 @@ export class AppTitlebar extends React.Component<{}, State> {
     const { path } = this.state
     return (
       <header className="pl-16 pr-16 app-titlebar">
-        <p>{path}</p>
+        <p>
+          <i>Demo concept for pre-marketing checklist</i> | Path: {path}
+        </p>
       </header>
     )
   }

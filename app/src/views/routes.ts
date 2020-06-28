@@ -2,9 +2,9 @@ const routes: RouteConfig[] = [
   {
     key: 'Home',
     path: '/',
-    redirect: { to: '/demo?form=home' },
+    redirect: { to: '/checklist' },
     windowOptions: {
-      title: 'App Home (redirect to demo)',
+      title: 'App Home (Lettings Checklist)',
       width: 1200,
       height: 800,
       minWidth: 800,
