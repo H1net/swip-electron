@@ -7,7 +7,9 @@ interface Checklist {
   reapitid: string
   address: string
   office: string
-  item1: boolean
+  clc: string
+  landreg: boolean
+  landregNamesReapit: boolean
 }
 
 const columns: ColumnsType<Checklist> = [
@@ -19,37 +21,74 @@ const columns: ColumnsType<Checklist> = [
     fixed: 'left',
   },
   {
-    title: 'Office',
-    dataIndex: 'office',
-    key: 'office',
-    width: 110,
-    // fixed: 'left',
-    filters: [
+    title: 'Team',
+    children: [
       {
-        text: 'Manchester',
-        value: 'Manchester',
+        title: 'Office',
+        dataIndex: 'office',
+        key: 'office',
+        width: 110,
+        filters: [
+          {
+            text: 'Manchester',
+            value: 'Manchester',
+          },
+          {
+            text: 'Birmingham',
+            value: 'Birmingham',
+          },
+        ],
+        onFilter: (value, record: Checklist) => record.office.indexOf(value) === 0,
       },
       {
-        text: 'Birmingham',
-        value: 'Birmingham',
+        title: 'CLC',
+        dataIndex: 'clc',
+        key: 'clc',
+        width: 120,
       },
     ],
-    onFilter: (value, record: Checklist) => record.office.indexOf(value) === 0,
   },
   {
-    title: 'Item 1',
-    dataIndex: 'item1',
-    key: 'item1',
-    // width: 10,
-    // fixed: 'left',
-    filters: [
+    title: 'Pre-Marketing',
+    children: [
       {
-        text: 'Incomplete',
-        value: 'Incomplete',
-      },
-      {
-        text: 'Complete',
-        value: 'Complete',
+        title: 'LandReg',
+        children: [
+          {
+            title: 'Title saved',
+            dataIndex: 'landreg',
+            key: 'landreg',
+            width: 80,
+            filters: [
+              {
+                text: 'Incomplete',
+                value: 'Incomplete',
+              },
+              {
+                text: 'Filed',
+                value: 'Filed',
+              },
+            ],
+            onFilter: (value, record: Checklist) => record.office.indexOf(value) === 0,
+          },
+          {
+            title: 'Names match Reapit',
+            dataIndex: 'landregNamesReapit',
+            key: 'landregNamesReapit',
+            width: 80,
+            filters: [
+              {
+                text: 'Match',
+                value: 'Incomplete',
+              },
+              {
+                text: 'Filed',
+                value: 'Filed',
+              },
+            ],
+            onFilter: (value, record: Checklist) => record.office.indexOf(value) === 0,
+          },
+        ],
       },
     ],
   },
@@ -69,7 +108,9 @@ for (let i = 0; i < 1000; i++) {
     reapitid: 'MAN' + i + 1,
     address: i + ' Lake Park',
     office: 'Manchester',
-    item1: false,
+    clc: 'Sowud Jahelp-Mi',
+    landreg: true,
+    landregNamesReapit: true,
   })
 }
 
@@ -80,7 +121,7 @@ export const Checklists = () => {
       dataSource={data}
       bordered
       size="middle"
-      scroll={{ x: 'calc(700px + 50%)', y: 500 }}
+      scroll={{ x: 'calc(800px + 50%)', y: 500 }}
     />
   )
 }
